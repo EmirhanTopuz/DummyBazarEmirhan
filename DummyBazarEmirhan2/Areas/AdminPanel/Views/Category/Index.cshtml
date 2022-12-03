@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DummyBazarEmirhan2.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+<div>
+    <h3>Kategoriler <small> Kayıtlı Tüm kategoriler</small></h3>
+</div>
+<div>
+    <table cellspacing="0" cellpadding="0" class="liste">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>Seçenekler</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>
+                @if (item.Description.Length>=50)
+                {
+                    @item.Description.Substring(0, 50);
+                    <label>
+                        ...
+                    </label>
+                }
+                else
+                {
+                    @item.Description
+                }
+            </td>
+            <td>
+                <a href="#">Düzenle</a>
+                <a href="#">sil</a>
+            </td>
+        </tr>
+
+        }
+    </table>
+</div>
+

@@ -16,7 +16,7 @@ namespace DummyBazarEmirhan2.Models
 
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<ManagerType> ManagersType { get; set; }
-
+        public virtual DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
