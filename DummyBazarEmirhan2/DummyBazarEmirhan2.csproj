@@ -124,6 +124,7 @@
     <Content Include="Areas\AdminPanel\Views\Home\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Category\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Category\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Category\Edit.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

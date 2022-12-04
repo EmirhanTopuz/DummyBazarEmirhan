@@ -280,3 +280,20 @@ h6 {
     padding: 10px 20px;
    width:85%
 }
+.sidebarMenu{
+
+    list-style-type:none;
+    margin-top:15px;
+}
+.sidebarMenu a li{
+    padding:7px;
+    background-color:#c7d5e0;
+    border-bottom:1px solid ;
+}
+    .sidebarMenu a li:hover{
+        background-color:#66c0f4
+    }
+    .sidebarMenu a{
+       text-decoration:none;
+       color:yellowgreen;
+    }

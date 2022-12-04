@@ -1,0 +1,50 @@
+﻿
+
+@model DummyBazarEmirhan2.Models.Category
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="form">
+    <div class="formtitle">
+        <h3>Kategori düzenle </h3>
+        @*@ViewBag.suleyman*@
+    </div>
+    <div class="formcontent">
+        @if (ViewBag.Mesaj!=null)
+        {
+            <div>
+                @ViewBag.Mesaj
+
+            </div>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+            @Html.HiddenFor(Model=> Model.ID)
+            <div>
+                @Html.LabelFor(model => model.Name)
+                <br />
+                @Html.EditorFor(model => model.Name)
+                <br />
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Description)
+                <br />
+                @Html.EditorFor(model => model.Description)
+                <br />
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+            <div>
+                <input type="submit" value="kategori düzenle" />
+            </div>
+        }
+    </div>
+    <div>
+        <a href="@Url.Action("Index","Category")">Kategori listesine dön</a>
+    </div>
+</div>
+

@@ -33,8 +33,9 @@
                 }
             </td>
             <td>
-                <a href="#">Düzenle</a>
-                <a href="#">sil</a>
+                <a href="@Url.Action("Edit", "Category", new {id=item.ID})">Düzenle</a>
+                
+                <a href="@Url.Action("Delete", "Category", new {id=item.ID})">sil</a>
             </td>
         </tr>
 
