@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using DummyBazarEmirhan2.Models
+@{ 
+    Manager admin = Session["AdminSesion"] as Manager;
+}
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -10,12 +16,13 @@
 </head>
 <body >
     <div class="topbar DummyColorsBg-1">
-        <a href="#" class="cikis DummyColors-5">
+
+        <a href="@Url.Action("LogOut","Login")" class="cikis DummyColors-5">
         Çıkış</a>
     </div>
     <nav class="sidebar DummyColorsBg-4">
         <div class="container DummyColorsBg-3 DummyColors-5" style="margin-top:40px !important; padding:30px 20px">
-            <label>Merhaba<strong>Kullanıcı</strong> </label><br />
+            <label>@admin.Name<strong>@admin.Surname</strong> </label><br />
             <a href="#" class="DummyColors-5">Profil</a> <a href="#" class="DummyColors-5">Ayarlar</a>
         </div>
 
@@ -27,7 +34,8 @@
                 <a href="@Url.Action("Index","Category")">
                 <li>Kategori işlemleri</li></a>
                 <a href="@Url.Action("Index","Category")">
-                <li>Ürün işlemleri</li></a>
+                <li>Ürün işlemleri</li>
+                </a>
             </ul>
 
         </div>

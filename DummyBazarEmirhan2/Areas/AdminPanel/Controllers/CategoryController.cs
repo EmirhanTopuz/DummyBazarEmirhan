@@ -4,30 +4,44 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DummyBazarEmirhan2.Areas.AdminPanel.Filters;
 using DummyBazarEmirhan2.Models;
 
 namespace DummyBazarEmirhan2.Areas.AdminPanel.Controllers
 {
+    [AdminAuthenticationFilter]
     public class CategoryController : Controller
     {
         DummyBazarModel db = new DummyBazarModel();
         // GET: AdminPanel/Category
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.OrderBy(s=>s.TopCategory_ID).ToList());
         }
         [HttpGet]
+        [ManegerTypeAthenticationFilter]
         public ActionResult Create()
         {
-            ViewBag.suleyman = "süleyman buradaydı";
-            return View();
+            List<SelectListItem> categories = new List<SelectListItem>();
+                categories.Add(new SelectListItem { Text = "üst Kategori", Value = "0", Selected = true });
+            foreach (Category item in db.Categories)
+            {
+                categories.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString(), Selected = false });
 
+            }
+            ViewBag.TopCategories=categories;
+           
+            return View();
         }
         [HttpPost]
         public ActionResult Create(Category model)
         {
             if (ModelState.IsValid)
             {
+                if (model.TopCategory_ID==0)
+                {
+                    model.TopCategory_ID = null;
+                }
                 db.Categories.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");

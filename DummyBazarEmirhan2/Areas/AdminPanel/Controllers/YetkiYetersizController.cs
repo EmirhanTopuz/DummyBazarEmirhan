@@ -7,11 +7,10 @@ using System.Web.Mvc;
 
 namespace DummyBazarEmirhan2.Areas.AdminPanel.Controllers
 {
-    [AdminAuthenticationFilter]
-    public class HomeController : Controller
+    public class YetkiYetersizController : Controller
     {
         [AdminAuthenticationFilter]
-        // GET: AdminPanel/Home
+        // GET: AdminPanel/YetkiYetersiz
         public ActionResult Index()
         {
             return View();
